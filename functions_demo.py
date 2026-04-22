@@ -1,0 +1,12 @@
+def calculate_average(numbers):
+    if not numbers:
+        return 0
+
+    total = 0
+    count = 0
+    for value in numbers:
+        total += value
+        count += 1
+
+    average = total / count
+    return round(average, 2)
