@@ -30,22 +30,3 @@ def format_user_record(name, age, tags):
     if normalized_tags:
         description += f" Tags: {', '.join(normalized_tags)}."
     return {"name": clean_name, "age": safe_age, "tags": normalized_tags, "description": description}
-
-
-def build_report(items):
-    lines = []
-    total_length = 0
-    for index, item in enumerate(items, start=1):
-        text = str(item).strip()
-        if not text:
-            continue
-
-        total_length += len(text)
-        lines.append(f"{index}. {text}")
-
-    report = "\n".join(lines)
-    return {
-        "line_count": len(lines),
-        "character_count": total_length,
-        "report": report,
-    }
