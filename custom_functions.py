@@ -32,20 +32,3 @@ def group_by_first_letter(words: list[str]) -> dict[str, list[str]]:
     for key in grouped:
         grouped[key].sort()
     return grouped
-
-
-def format_user_report(users: list[dict]) -> list[str]:
-    lines = []
-    for index, user in enumerate(users, start=1):
-        name = user.get("name", "Unknown")
-        age = user.get("age", "N/A")
-        city = user.get("city", "Unknown")
-
-        if isinstance(name, str):
-            name = name.strip() or "Unknown"
-        summary = f"{index}. {name} | age={age} | city={city}"
-        lines.append(summary)
-
-    if not lines:
-        return ["No users available."]
-    return lines
