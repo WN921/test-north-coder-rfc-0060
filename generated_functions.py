@@ -25,17 +25,3 @@ def calculate_order_total(prices, discount_rate, tax_rate):
     tax = taxed_base * tax_rate
     total = taxed_base + tax
     return round(total, 2)
-
-
-def find_longest_words(text, limit=3):
-    words = []
-    for raw_word in text.split():
-        cleaned = raw_word.strip(",.!?;:\"'()[]{}")
-        if cleaned:
-            words.append(cleaned)
-    unique_words = sorted(set(words), key=lambda word: (-len(word), word.lower()))
-    selected = unique_words[:limit]
-    result = []
-    for word in selected:
-        result.append({"word": word, "length": len(word)})
-    return result
