@@ -27,17 +27,3 @@ def format_user_profile(name, age, city):
     else:
         profile_lines.append("Status: Minor")
     return " | ".join(profile_lines)
-
-
-def count_vowels(text):
-    vowels = "aeiouAEIOU"
-    counts = {"a": 0, "e": 0, "i": 0, "o": 0, "u": 0}
-
-    for char in text:
-        if char in vowels:
-            lower_char = char.lower()
-            counts[lower_char] += 1
-
-    total_vowels = sum(counts.values())
-    counts["total"] = total_vowels
-    return counts
