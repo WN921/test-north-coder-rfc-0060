@@ -1,17 +1,14 @@
-def summarize_scores(scores):
-    valid_scores = [score for score in scores if isinstance(score, (int, float))]
-    if not valid_scores:
-        return {"count": 0, "average": 0, "highest": None, "lowest": None}
+def normalize_name(name):
+    cleaned = str(name).strip()
+    if not cleaned:
+        return ""
 
-    total = 0
-    highest = valid_scores[0]
-    lowest = valid_scores[0]
-    for score in valid_scores:
-        total += score
-        if score > highest:
-            highest = score
-        if score < lowest:
-            lowest = score
+    parts = cleaned.replace("_", " ").split()
+    normalized_parts = []
+    for part in parts:
+        if len(part) == 1:
+            normalized_parts.append(part.upper())
+        else:
+            normalized_parts.append(part[0].upper() + part[1:].lower())
 
-    average = total / len(valid_scores)
-    return {"count": len(valid_scores), "average": average, "highest": highest, "lowest": lowest}
+    return " ".join(normalized_parts)
