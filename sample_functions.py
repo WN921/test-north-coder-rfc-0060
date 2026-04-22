@@ -28,25 +28,3 @@ def collect_even_numbers(values):
 
     even_numbers.sort()
     return even_numbers
-
-
-def build_status_report(items):
-    total_items = len(items)
-    completed_items = 0
-    pending_items = 0
-    for item in items:
-        if item.get("done"):
-            completed_items += 1
-        else:
-            pending_items += 1
-
-    if total_items == 0:
-        completion_rate = 0.0
-    else:
-        completion_rate = completed_items / total_items
-    return {
-        "total": total_items,
-        "completed": completed_items,
-        "pending": pending_items,
-        "completion_rate": completion_rate,
-    }
