@@ -29,22 +29,3 @@ def format_user_profile(name, age, city, hobbies):
     ]
     summary = " | ".join(profile_lines)
     return {"name": cleaned_name, "city": cleaned_city, "hobbies": normalized_hobbies, "summary": summary}
-
-
-def build_report(items):
-    report = []
-    completed = 0
-    pending = 0
-
-    for index, item in enumerate(items, start=1):
-        title = item.get("title", "Untitled")
-        done = item.get("done", False)
-        status = "done" if done else "pending"
-        report.append(f"{index}. {title} [{status}]")
-        if done:
-            completed += 1
-        else:
-            pending += 1
-
-    footer = f"Completed: {completed}, Pending: {pending}, Total: {len(items)}"
-    return "\n".join(report + [footer])
