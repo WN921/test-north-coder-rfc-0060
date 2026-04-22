@@ -24,16 +24,3 @@ def format_user_info(name, age, city):
         f"and lives in {cleaned_city}."
     )
     return message
-
-
-def find_even_numbers(values):
-    even_numbers = []
-
-    for item in values:
-        if not isinstance(item, int):
-            continue
-
-        if item % 2 == 0:
-            even_numbers.append(item)
-
-    return even_numbers
