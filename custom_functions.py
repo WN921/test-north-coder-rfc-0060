@@ -15,20 +15,3 @@ def calculate_score(records: list[dict]) -> dict:
 
     average = total / valid_count if valid_count else 0
     return {"count": valid_count, "total": total, "average": average}
-
-
-def group_by_first_letter(words: list[str]) -> dict[str, list[str]]:
-    grouped: dict[str, list[str]] = {}
-    for word in words:
-        cleaned = word.strip()
-        if not cleaned:
-            continue
-
-        first = cleaned[0].lower()
-        if first not in grouped:
-            grouped[first] = []
-        grouped[first].append(cleaned)
-
-    for key in grouped:
-        grouped[key].sort()
-    return grouped
