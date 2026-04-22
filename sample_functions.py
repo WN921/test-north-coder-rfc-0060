@@ -42,24 +42,3 @@ def normalize_text(text):
     if normalized and normalized[-1] not in ".!?":
         normalized += "."
     return normalized
-
-
-def build_report(records):
-    lines = ["Report Summary", "=" * 14]
-    success_count = 0
-    failure_count = 0
-
-    for item in records:
-        name = item.get("name", "unknown")
-        success = item.get("success", False)
-        duration = item.get("duration", 0)
-        status = "OK" if success else "FAILED"
-        lines.append(f"- {name}: {status} ({duration} ms)")
-        if success:
-            success_count += 1
-        else:
-            failure_count += 1
-
-    lines.append(f"Success: {success_count}")
-    lines.append(f"Failure: {failure_count}")
-    return "\n".join(lines)
