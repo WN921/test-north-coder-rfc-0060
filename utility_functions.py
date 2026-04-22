@@ -18,19 +18,3 @@ def normalize_words(text: str) -> list[str]:
     if current:
         result.append("".join(current))
     return result
-
-
-def group_by_length(words: list[str]) -> dict[int, list[str]]:
-    grouped = {}
-    for word in words:
-        size = len(word)
-        if size not in grouped:
-            grouped[size] = []
-        if word not in grouped[size]:
-            grouped[size].append(word)
-
-    for size, items in grouped.items():
-        items.sort()
-        grouped[size] = items
-
-    return grouped
