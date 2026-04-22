@@ -15,18 +15,3 @@ def summarize_scores(scores):
 
     average = total / len(valid_scores)
     return {"count": len(valid_scores), "average": average, "highest": highest, "lowest": lowest}
-
-
-def format_user_record(name, age, tags):
-    clean_name = str(name).strip().title()
-    safe_age = int(age) if age is not None else 0
-    normalized_tags = []
-    for tag in tags:
-        text = str(tag).strip().lower()
-        if text and text not in normalized_tags:
-            normalized_tags.append(text)
-
-    description = f"{clean_name} is {safe_age} years old."
-    if normalized_tags:
-        description += f" Tags: {', '.join(normalized_tags)}."
-    return {"name": clean_name, "age": safe_age, "tags": normalized_tags, "description": description}
