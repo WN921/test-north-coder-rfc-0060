@@ -14,18 +14,3 @@ def analyze_numbers(numbers):
 
     average = total / len(numbers)
     return {"count": len(numbers), "sum": total, "average": average, "max": maximum, "min": minimum}
-
-
-def format_user_profile(name, age, city, hobbies):
-    cleaned_name = name.strip().title()
-    cleaned_city = city.strip().title()
-    normalized_hobbies = [hobby.strip().lower() for hobby in hobbies if hobby.strip()]
-
-    profile_lines = [
-        f"Name: {cleaned_name}",
-        f"Age: {age}",
-        f"City: {cleaned_city}",
-        f"Hobbies: {', '.join(normalized_hobbies) if normalized_hobbies else 'None'}",
-    ]
-    summary = " | ".join(profile_lines)
-    return {"name": cleaned_name, "city": cleaned_city, "hobbies": normalized_hobbies, "summary": summary}
