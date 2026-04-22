@@ -34,19 +34,3 @@ def group_by_length(words: list[str]) -> dict[int, list[str]]:
         grouped[size] = items
 
     return grouped
-
-
-def format_report(title: str, values: list[int]) -> str:
-    if not values:
-        return f"{title}: no data"
-
-    total = sum(values)
-    average = total / len(values)
-    minimum = min(values)
-    maximum = max(values)
-    lines = [f"Report: {title}"]
-    lines.append(f"Count: {len(values)}")
-    lines.append(f"Total: {total}")
-    lines.append(f"Average: {average:.2f}")
-    lines.append(f"Range: {minimum} - {maximum}")
-    return "\n".join(lines)
