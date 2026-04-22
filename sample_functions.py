@@ -1,16 +1,17 @@
-def analyze_numbers(numbers):
-    if not numbers:
-        return {"count": 0, "sum": 0, "average": 0, "max": None, "min": None}
+def summarize_scores(scores):
+    valid_scores = [score for score in scores if isinstance(score, (int, float))]
+    if not valid_scores:
+        return {"count": 0, "average": 0, "highest": None, "lowest": None}
 
     total = 0
-    maximum = numbers[0]
-    minimum = numbers[0]
-    for value in numbers:
-        total += value
-        if value > maximum:
-            maximum = value
-        if value < minimum:
-            minimum = value
+    highest = valid_scores[0]
+    lowest = valid_scores[0]
+    for score in valid_scores:
+        total += score
+        if score > highest:
+            highest = score
+        if score < lowest:
+            lowest = score
 
-    average = total / len(numbers)
-    return {"count": len(numbers), "sum": total, "average": average, "max": maximum, "min": minimum}
+    average = total / len(valid_scores)
+    return {"count": len(valid_scores), "average": average, "highest": highest, "lowest": lowest}
