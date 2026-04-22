@@ -1,0 +1,17 @@
+"""Custom helper functions for small data processing tasks."""
+
+
+def calculate_score(records: list[dict]) -> dict:
+    if not records:
+        return {"count": 0, "total": 0, "average": 0}
+
+    total = 0
+    valid_count = 0
+    for item in records:
+        score = item.get("score", 0)
+        if isinstance(score, (int, float)):
+            total += score
+            valid_count += 1
+
+    average = total / valid_count if valid_count else 0
+    return {"count": valid_count, "total": total, "average": average}
